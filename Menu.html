@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/ico.ico" type="image/x-icon">
+    <title>Menu - La boutique du café</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('img/bgg.png'); /* Définir l'image de fond */
+            background-size: cover; /* Couvrir toute la fenêtre d'affichage */
+            background-attachment: fixed; /* Image de fond fixe */
+            background-color: transparent; /* Couleur de fond transparente */
+        }
+
+        .header {
+            display: flex;
+            justify-content: center; /* Centrer horizontalement dans l'en-tête */
+            align-items: center; /* Centrer verticalement dans l'en-tête */
+            background-color: transparent;
+            padding: 10px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+  top: 0;
+  left: 0;
+        }
+        .minilogo {
+            width: 80%;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #000; /* Couleur du texte noire */
+            margin: 0;
+        }
+
+        .menu {
+            background-color: transparent; /* Arrière-plan du menu marron */
+            color: #000; /* Couleur du texte noire */
+            width: 270px;
+            padding: 20px;
+            margin: 0 auto; /* Centrer le menu horizontalement */
+            font-family: Calibri, sans-serif; /* Définir la police sur Calibri */
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu li {
+    margin-bottom: 30px; /* Conserve l'espacement entre les éléments du menu */
+    cursor: pointer;
+    text-align: center; /* Centre le texte horizontalement */
+    text-shadow: 0 0 3px #94550e, 0 0 5px #ffffff;
+}
+
+        .menu a {
+            text-decoration: none;
+            color: #000; /* Couleur du texte noire */
+        }
+
+        .submenu {
+            background-color: transparent; /* Arrière-plan du sous-menu marron */
+            display: none;
+            margin-left: 20px;
+            padding: 10px;
+            opacity: 0; /* Définir initialement l'opacité à 0 pour l'effet de fondu */
+            transition: opacity 0.5s, transform 0.3s ease-in-out; /* Ajouter des transitions pour l'opacité et la transformation */
+            transform-origin: top; /* Définir l'origine de la transformation en haut */
+        }
+
+        .submenu table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .submenu td {
+            padding: 0; /* Supprimer la marge pour éliminer l'espacement */
+            color: #000; /* Couleur du texte noire pour les cellules de tableau */
+            text-align: center; /* Centrer le contenu horizontalement */
+        }
+
+        /* Ajouter un style pour le choix sélectionné */
+        .selected {
+            background-color: transparent; /* Couleur de fond jaune pour le choix sélectionné */
+        }
+
+        /* Ajouter un style pour le sous-menu ouvert */
+        .submenu-open {
+            display: block;
+            opacity: 1;
+            transform: scaleY(1); /* Mettre à l'échelle verticalement pour afficher le sous-menu */
+        }
+
+        /* Styles pour l'image */
+        .submenu img {
+            width: 270px; /* Largeur de l'image */
+             margin: 0 auto; /* Centrer l'image horizontalement */
+             /* Afficher l'image en tant que bloc pour centrer verticalement */
+            margin: 0 auto 10px; /* Espacement en bas de l'image */
+        }
+        .ftour {
+    width: 100px; /* La nouvelle largeur que vous souhaitez pour ces images */
+}
+.clicked-logo {
+    transform: scale(1.2); /* You can adjust the scale factor for the desired effect */
+    transition: transform 0.3s; /* Add a smooth transition effect */
+}
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Style the image as needed */
+.loading-overlay img {
+    width: 100px; /* Adjust the width and height as needed */
+    height: 100px;
+}
+.decalage-gauche {
+    margin-left: 150px; /* Vous pouvez ajuster la valeur selon vos préférences */
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" id="home-link">
+            <img class="logo" src="img/home.png" alt="Logo" id="header-logo">
+        </a>
+        <h1>Menu</h1>
+    </div>
+    <div class="menu">
+        <ul>
+            <li class="menu-item" onclick="toggleSubMenu(this)"><a href="#"> <img src="img/Mboisson-chaude.png" alt="minilogo" class="minilogo">
+                <ul class="submenu">
+                    <li>
+                        <img src="img/bchaude.png" alt="Image de la boisson chaude" class="minilogo decalage-gauche"> <!-- Image centrée -->
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item" onclick="toggleSubMenu(this)"><a href="#"> <img src="img/Mboisson-fraiche.png" alt="minilogo" class="minilogo">
+                <ul class="submenu">
+                    <li>
+                        <img src="img/bfraiche.png" alt="Image de la boisson fraiche" class="minilogo decalage-gauche"> <!-- Image centrée -->
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item" onclick="toggleSubMenu(this)"><a href="#"> <img src="img/Mpv.png" alt="minilogo" class="minilogo">
+                <ul class="submenu">
+                    <li>
+                        <img src="img/pev.png" alt="Image de la patisserie et viennoiserie" class="minilogo decalage-gauche"> <!-- Image centrée -->
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item" onclick="toggleSubMenu(this)"><a href="#"> <img src="img/ptidej.png" alt="minilogo1" class="minilogo">
+                <ul class="submenu">
+                    <li>
+                        <img class="ftour" src="img/ftour1.png" alt="Image du petit dejeuner" width="150">
+                        <img class="ftour" src="img/ftour2.png" alt="Image du petit dejeuner" width="150">
+                        <img class="ftour" src="img/ftour3.png" alt="Image du petit dejeuner" width="150">
+                        <img class="ftour" src="img/ftour4.png" alt="Image du petit dejeuner" width="150">
+                        <img class="ftour" src="img/ftour5.png" alt="Image du petit dejeuner" width="150">
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="loading-overlay" id="loadingOverlay">
+        <img src="img/logo.png" alt="Loading Image">
+    </div>
+    <script>
+        function toggleSubMenu(item) {
+            var submenu = item.querySelector('.submenu');
+            if (submenu) {
+                // Check if the submenu is currently open
+                var isOpen = submenu.classList.contains('submenu-open');
+                
+                // Close all open submenus first
+                var allSubmenus = document.querySelectorAll('.submenu');
+                allSubmenus.forEach(function (element) {
+                    element.classList.remove('submenu-open');
+                });
+
+                // If the submenu is not open, open it
+                if (!isOpen) {
+                    submenu.classList.add('submenu-open');
+                }
+            }
+        }
+
+        // Event listener to close the submenu when clicking outside
+        document.addEventListener('click', function (event) {
+            var clickedElement = event.target;
+            if (!clickedElement.closest('.menu')) {
+                // Clicked outside the menu, so close all submenus
+                var allSubmenus = document.querySelectorAll('.submenu');
+                allSubmenus.forEach(function (element) {
+                    element.classList.remove('submenu-open');
+                });
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+    // Get the logo element
+    const headerLogo = document.getElementById('header-logo');
+    
+    // Add a click event listener to the logo
+    headerLogo.addEventListener('click', function () {
+        // Toggle the "clicked-logo" class to add or remove the effect
+        headerLogo.classList.toggle('clicked-logo');
+    });
+});
+// Function to show the loading overlay
+function showLoadingOverlay() {
+    document.getElementById('loadingOverlay').style.display = 'flex';
+}
+
+// Function to hide the loading overlay
+function hideLoadingOverlay() {
+    document.getElementById('loadingOverlay').style.display = 'none';
+}
+
+// Simulate a delay to hide the loading overlay (you can replace this with your page transition logic)
+function simulatePageTransition() {
+    showLoadingOverlay();
+
+    setTimeout(function() {
+        hideLoadingOverlay();
+    }, 750); // Replace 2000 with your actual page load time
+}
+
+// Add an event listener to simulate the page transition
+document.addEventListener('DOMContentLoaded', simulatePageTransition);
+
+    </script>
+</body>
+</html>

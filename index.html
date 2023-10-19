@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Menu - La boutique du café</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('img/bgg.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: transparent;
+        }
+       
+        
+        .header {
+            text-align: center;
+            background-color: transparent;
+            padding: 10px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            margin-right: 10px;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #000; /* Couleur du texte noire */
+            margin: 0;
+            font-size: 45px;}
+
+        /* Style the main container */
+        .photos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            
+        }
+
+        /* Style all photo items */
+        .photo-item {
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .photo-item img {
+            max-width: 100%;
+            height: auto;
+            width: 100%; /* Ajuster l'image à la largeur de l'écran */
+            border-radius: 60px 60px 60px 60px;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.1);
+        }
+        .aboutus {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+            color: #000; /* Couleur du texte noire */
+            margin: 0;
+            font-size: 30px;
+
+  }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="img/logo.png" alt="Logo">
+        <h1>La boutique du café</h1>
+    </div>
+    
+    <div class="photos">
+        <a href="Menu.html" class="photo-item">
+            <img src="img/menu.png" alt="Photo 1">
+        </a>
+        <a href="Boutique.html" class="photo-item">
+            <img src="img/boutique.png" alt="Photo 2">
+        </a>
+    </br>
+    <div>
+        <a href="https://m.facebook.com/profile.php/?id=100064879908655&name=xhp_nt__fb__action__open_user" target="_blank">
+            <img src="img/fblogo1.png" alt="Facebook" width="90" height="90">
+        </a>
+        <a href="https://www.instagram.com/laboutiqueducafe1/" target="_blank">
+            <img src="img/instalogo.png" alt="Instagram" width="90" height="90">
+        </a>
+        <a href="https://wa.me/212661138859" target="_blank">
+            <img src="img/walogo.png" alt="WhatsApp" width="90" height="90">
+        </a>
+    </br>
+</div>
+    <div>
+    </br>
+    <center><a href="about.html" class="aboutus" >À propos de nous</a></center>
+</div>
+    
+
+    </div>
+</br>
+</br>
+</body>
+</html>
+
+    
+    <script>
+        function toggleSubMenu(item) {
+            var submenu = item.querySelector('.submenu');
+            if (submenu) {
+                // Check if the submenu is currently open
+                var isOpen = submenu.classList.contains('submenu-open');
+                
+                // Close all open submenus first
+                var allSubmenus = document.querySelectorAll('.submenu');
+                allSubmenus.forEach(function (element) {
+                    element.classList.remove('submenu-open');
+                });
+
+                // If the submenu is not open, open it
+                if (!isOpen) {
+                    submenu.classList.add('submenu-open');
+                }
+            }
+        }
+
+        // Event listener to close the submenu when clicking outside
+        document.addEventListener('click', function (event) {
+            var clickedElement = event.target;
+            if (!clickedElement.closest('.menu')) {
+                // Clicked outside the menu, so close all submenus
+                var allSubmenus = document.querySelectorAll('.submenu');
+                allSubmenus.forEach(function (element) {
+                    element.classList.remove('submenu-open');
+                });
+            }
+        });
+
+        // Get the menu items by their IDs
+const photo1Item = document.getElementById("photo1");
+const photo2Item = document.getElementById("photo2");
+const photo3Item = document.getElementById("photo3");
+
+// Define the links for each photo
+const photo1Link = "https://example.com/photo1";
+const photo2Link = "https://example.com/photo2";
+const photo3Link = "https://example.com/photo3";
+
+// Add click event listeners to the menu items
+photo1Item.addEventListener("click", () => {
+    window.location.href = photo1Link;
+});
+
+photo2Item.addEventListener("click", () => {
+    window.location.href = photo2Link;
+});
+
+photo3Item.addEventListener("click", () => {
+    window.location.href = photo3Link;
+});
+
+    </script>
+</body>
+</html>
